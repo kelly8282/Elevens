@@ -20,20 +20,21 @@ public class Deck
     
         public void DeckCard ()
         {
+            cards =new ArrayList<Card>(52);
+            for(int j=0; j < SUITS.length; j++)
+            {
+                for(int i = 1; i < FACES.length; i++)
+                {
+                    cards.add( new Card(SUITS[j],i));
+                }
+            }
             
         }
-   //make a Deck constructor
-   	//refer cards to new ArrayList
-   	//set top to the top of the deck 51
-   	
-   	//loop through all suits
-   		//loop through all faces 1 to 13
-   			//add a new TwentyOneCard to the deck
-
-   
-   //make a dealCard() method that returns the top card
-   
-   //write a shuffle() method
-   	//use Colletions.shuffle
-   	//reset the top card 
+        public String dealCard()
+        {
+            String ret = cards.get(0).toString();
+            cards.add(cards.get(0));
+            cards.remove(0);
+            return ret;
+        }
 }
